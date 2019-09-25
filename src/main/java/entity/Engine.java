@@ -8,5 +8,6 @@ public class Engine {
 
     @NonNull
     private EngineType engineType;
-    private Integer engineVolume;
+    @NonNull
+    private Integer enginePower;
 }

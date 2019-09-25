@@ -13,4 +13,6 @@ public class Car {
     private String color;
     @NonNull
     private AutoType autoType;
+    @NonNull
+    private Integer weight;
 }

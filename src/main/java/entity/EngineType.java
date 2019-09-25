@@ -1,5 +1,5 @@
 package entity;
 
 public enum EngineType {
-    GASOLINE, DIESEL, ELECTIC
+    GASOLINE, DIESEL, ELECTRIC
 }
