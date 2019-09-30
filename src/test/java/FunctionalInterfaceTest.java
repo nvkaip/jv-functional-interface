@@ -1,7 +1,7 @@
-import customInt.ChangeToCarFunction;
-import customInt.CheckElectricCarPredicate;
-import customInt.CompareTwoAuto;
-import customInt.RandomColorSupplier;
+import answers.ChangeToCarFunction;
+import answers.CheckElectricCarPredicate;
+import answers.CompareTwoAuto;
+import answers.RandomColorSupplier;
 import entity.AutoType;
 import entity.Car;
 import entity.Engine;
