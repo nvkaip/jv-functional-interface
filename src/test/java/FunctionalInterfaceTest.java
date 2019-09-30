@@ -1,7 +1,7 @@
-import customInt.ChangeToCarFunction;
-import customInt.CheckElectricCarPredicate;
-import customInt.CompareTwoAuto;
-import customInt.RandomColorSupplier;
+import task.ChangeToCar;
+import task.CheckElectricCar;
+import task.CompareTwoAuto;
+import task.RandomColor;
 import entity.AutoType;
 import entity.Car;
 import entity.Engine;
@@ -33,18 +33,18 @@ public class FunctionalInterfaceTest {
 
     @Test
     public void randomColorSupplier() {
-        RandomColorSupplier randomColorSupplier = new RandomColorSupplier();
+        RandomColor randomColor = new RandomColor();
         List<String> expectedColors =
                 Arrays.asList("red", "green", "blue", "yellow", "pink", "black", "white");
-        String actualColor = randomColorSupplier.get();
+        String actualColor = randomColor.get();
         Assert.assertTrue(expectedColors.contains(actualColor));
     }
 
     @Test
     public void changeToCarFunction() {
-        ChangeToCarFunction changeToCarFunction = new ChangeToCarFunction();
+        ChangeToCar changeToCar = new ChangeToCar();
         for (Car car : carList){
-            car.setAutoType(changeToCarFunction.apply(car.getWeight()));
+            car.setAutoType(changeToCar.apply(car.getWeight()));
             if (car.getWeight() < 1500){
                 Assert.assertEquals(AutoType.CAR, car.getAutoType());
             } else {
@@ -55,30 +55,23 @@ public class FunctionalInterfaceTest {
 
     @Test
     public void electricCarCheck() {
-        CheckElectricCarPredicate electricCarPredicate = new CheckElectricCarPredicate();
+        CheckElectricCar electricCarPredicate = new CheckElectricCar();
         Assert.assertTrue(electricCarPredicate.test(carList.get(0)));
     }
 
     @Test
     public void electricCarCheckFail() {
-        CheckElectricCarPredicate electricCarPredicate = new CheckElectricCarPredicate();
+        CheckElectricCar electricCarPredicate = new CheckElectricCar();
         Assert.assertFalse(electricCarPredicate.test(carList.get(1)));
     }
 
     @Test
     public void compareTwoAuto() {
         CompareTwoAuto compareTwoAuto = new CompareTwoAuto();
-        Car expectedCar = carList.get(0);
-        Car actualCar = compareTwoAuto.apply(carList.get(0), carList.get(1));
-        Assert.assertEquals(expectedCar, actualCar);
-    }
-
-    @Test
-    public void compareTwoEqualAuto() {
-        CompareTwoAuto compareTwoAuto = new CompareTwoAuto();
-        Car expectedCar = carList.get(1);
-        Car actualCar = compareTwoAuto.apply(carList.get(1), carList.get(2));
-        log.info("Expected: " + expectedCar + " actual: " + actualCar);
-        Assert.assertEquals(expectedCar, actualCar);
+        Integer expectedDifference = carList.get(0).getEngine().getEnginePower()
+                - carList.get(1).getEngine().getEnginePower();
+        Integer actualDifference = compareTwoAuto.apply(carList.get(0).getEngine().getEnginePower(),
+                carList.get(1).getEngine().getEnginePower());
+        Assert.assertEquals(expectedDifference, actualDifference);
     }
 }
