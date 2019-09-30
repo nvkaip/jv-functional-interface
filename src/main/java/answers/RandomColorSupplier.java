@@ -1,4 +1,4 @@
-package customInt;
+package answers;
 
 import java.util.Random;
 import java.util.function.Supplier;
