@@ -6,7 +6,6 @@ import entity.AutoType;
 import entity.Car;
 import entity.Engine;
 import entity.EngineType;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Slf4j
 public class FunctionalInterfaceTest {
 
     private List<Car> carList;
