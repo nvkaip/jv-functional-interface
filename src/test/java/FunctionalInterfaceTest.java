@@ -68,17 +68,10 @@ public class FunctionalInterfaceTest {
     @Test
     public void compareTwoAuto() {
         CompareTwoAuto compareTwoAuto = new CompareTwoAuto();
-        Car expectedCar = carList.get(0);
-        Car actualCar = compareTwoAuto.apply(carList.get(0), carList.get(1));
-        Assert.assertEquals(expectedCar, actualCar);
-    }
-
-    @Test
-    public void compareTwoEqualAuto() {
-        CompareTwoAuto compareTwoAuto = new CompareTwoAuto();
-        Car expectedCar = carList.get(1);
-        Car actualCar = compareTwoAuto.apply(carList.get(1), carList.get(2));
-        log.info("Expected: " + expectedCar + " actual: " + actualCar);
-        Assert.assertEquals(expectedCar, actualCar);
+        Integer expectedDifference = carList.get(0).getEngine().getEnginePower()
+                - carList.get(1).getEngine().getEnginePower();
+        Integer actualDifference = compareTwoAuto.apply(carList.get(0).getEngine().getEnginePower(),
+                carList.get(1).getEngine().getEnginePower());
+        Assert.assertEquals(expectedDifference, actualDifference);
     }
 }
